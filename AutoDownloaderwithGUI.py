@@ -190,7 +190,7 @@ def stop_button_click():
 
 root = tk.Tk()
 root.title("qaime Formu")
-root.geometry("400x400")
+root.geometry("400x600")
 
 username_label = tk.Label(root, text="İstifadəçi kodu:")
 username_label.pack()
