@@ -50,7 +50,7 @@ def StartDownload(username, password, pin, optionValue, result_file_name, start_
 #sisteme giris
     adress = 'https://login.e-taxes.gov.az/login/'
     username = "00563614"  #username
-    password_2 = "12385212"#password
+    password_2 = "95123852"#password
     password_1 = "579234"#pin
     optionV = optionValue
     newResultFileName = result_file_name
@@ -109,6 +109,16 @@ def StartDownload(username, password, pin, optionValue, result_file_name, start_
                 condition = False
 
         response = browser.find_elements(By.CSS_SELECTOR, '#resultArea tbody td')
+        
+        dvalue = response[3].accessible_name
+        if dvalue == "Düzəlişdən imtina/Təsdiqlənmiş":
+            sheet[f'A{startNumber+1}']= qaimeNum
+            sheet[f'B{startNumber+1}']= f'{browser.current_url}'
+            sheet[f'D{startNumber+1}'] = "xhtml file not found"
+            excelResult.save(filename=f'{filePath}\\R{newResultFileName}.xlsx')
+            startNumber+=startNumber
+            continue
+        
         browser.implicitly_wait(2)
         actionChains.double_click(response[4]).perform()
   
