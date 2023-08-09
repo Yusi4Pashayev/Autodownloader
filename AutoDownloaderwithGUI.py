@@ -49,9 +49,9 @@ def DownloadFileName(folder_location):
 def StartDownload(username, password, pin, optionValue, result_file_name, start_number, file_path,downloadfile_path):
 #sisteme giris
     adress = 'https://login.e-taxes.gov.az/login/'
-    username = "00563614"  #username
-    password_2 = "12385212"#password
-    password_1 = "579234"#pin
+    username = username
+    password_2 = password
+    password_1 = pin
     optionV = optionValue
     newResultFileName = result_file_name
     startNumber = int(start_number)-1
